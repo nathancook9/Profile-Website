@@ -74,7 +74,7 @@ section.middle {
 
 section.first-text {
     color: black;
-    padding: 120px;
+    padding: 100px;
     margin: 0px;
     display: flex;
     justify-content: center;
@@ -263,6 +263,10 @@ div.Photo3 {
     box-sizing: border-box;
 }
 
+button {
+    color: black;
+    padding: 25px;
+}
 
 
 
