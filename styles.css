@@ -73,12 +73,12 @@ section.middle {
 }
 
 section.first-text {
-    color: black;
     padding: 100px;
     margin: 0px;
     display: flex;
     justify-content: center;
     position: relative;
+    gap: 150px;
 }
 
 p.Statement {
@@ -89,11 +89,11 @@ p.Statement {
     top: 30%;
 }
 
-section.first-text:hover p.Statement{
+/* section.first-text:hover p.Statement{
     font-size: 34px;
     transform: translateY(-25%);
     opacity: 1;
-}
+} */
 
 section.sussy{
     display: flex;
@@ -265,7 +265,9 @@ div.Photo3 {
 
 button {
     color: black;
-    padding: 25px;
+    background-color: lightblue;
+    padding: 15px;
+    font-size: 25px;
 }
 
 
