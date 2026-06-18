@@ -269,15 +269,15 @@ button {
     width:200px;
     height: 66px;
     border-radius: 5px;
-    border: 2px solid lightskyblue;
-    background-color: rgb(216, 235, 250);;
-    box-shadow: inset 0 0 0 0 lightskyblue;
-    transition: ease-out 0.35s;
+    border: 2px solid lightgreen;
+    background-color: rgb(218, 241, 218);;
+    box-shadow: inset 0 0 0 0 lightgreen;
+    transition: ease-out 0.30s;
     font-size: 22px;
 }
 
 button:hover{
-    box-shadow: inset 0 0 66px 0 lightskyblue;
+    box-shadow: inset 0 0 66px 0 lightgreen;
     cursor: pointer;
 }
 
