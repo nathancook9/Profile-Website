@@ -136,8 +136,8 @@ div.box-up {
     width: 100%; /* Ensures the image scales to fill the width of the box */
     height: 100%; /* Ensures the image scales to fill the height of the box */
     object-fit: cover; /* Scales the image to fully cover the box while maintaining aspect ratio */
-    object-position: 0% 67%;
-    border-radius: 10px;
+    object-position: 0% 75%;
+    border-radius: 7px;
 }
 
 div.box-down {
