@@ -1,55 +1,59 @@
+/* GLOBAL RESET: Prevents padding/borders from breaking widths */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     background: black;
     color: white;
-    font-family: Helvetica Neue, Helvectica, sans-serif;
-    margin: 0px 0px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    margin: 0;
+    min-height: 100vh;
 }
 
-header{
-    padding: 35px 20px 40px 20px;
+header {
+    padding: clamp(20px, 4vh, 40px) clamp(15px, 2vw, 30px);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-footer{
-    height: 150px;
+footer {
+    min-height: 150px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0px;
+    margin: 0;
 }
 
-header nav ul, footer nav{
+header nav ul, footer nav {
     display: flex;
     flex-direction: row;
-    /* align-content: center;
-    justify-items: center; */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 header h1 {
     text-align: left;
     margin-bottom: 5px;
     align-self: flex-start;
+    font-size: clamp(24px, 3vw, 40px);
 }
 
 header h2 {
     align-self: flex-start;
     text-align: left;
-    font-size: medium;
-    margin: 0px;
-    padding: 0px;
+    font-size: clamp(16px, 1.5vw, 20px);
+    margin: 0;
+    padding: 0;
 }
 
-
-
-
-
-/*Openning statement on page*/
+/* Opening statement on page */
 section.raise-text {
-    padding: 120px;
-    margin: 0px;
+    padding: clamp(60px, 10vh, 120px) 20px;
+    margin: 0;
     display: flex;
     justify-content: center;
     position: relative;
@@ -58,12 +62,13 @@ section.raise-text {
 p.Statement {
     transition: all 0.9s;
     opacity: 0.5;
-    font-size: 33px;
+    font-size: clamp(22px, 2.5vw, 33px);
     position: absolute;
     top: 30%;
+    text-align: center;
 }
 
-section.raise-text:hover p.Statement{
+section.raise-text:hover p.Statement {
     transform: translateY(-25%);
     opacity: 1;
 }
@@ -71,310 +76,316 @@ section.raise-text:hover p.Statement{
 section.bottom {
     background-color: lightgreen;
     text-align: center;
-    padding: 6px;
+    padding: 10px;
 }
 
-
-
-
 section {
-    /* background: rgb(247, 247, 247); Change all sections background colour */
     background-color: white;
     color: black;
-    padding: 20px;
-    margin: 0px 0px;
+    padding: clamp(15px, 3vw, 20px);
+    margin: 0;
 }
 
 section.upper {
     color: white;
     background-color: black;
-    display: middle;
+    display: flex; /* Fixed invalid 'middle' */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 20px;
-    padding-top: 0px;
+    font-size: clamp(16px, 2vw, 20px);
+    padding-top: 0;
 }
 
-
-/* Adjusts the div boxes (Particualrly the flex direction & location)*/
-section.middle, section.bottom-middle{
+/* Adjusts the div boxes (Particularly the flex direction & location) */
+section.middle, section.bottom-middle {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: row;
+    flex-wrap: wrap; /* Fixed invalid 'wrap' in flex-direction */
     justify-content: center;
-    padding-top: 0px;
-    gap:60px;
+    padding-top: 0;
+    gap: clamp(20px, 4vw, 60px);
 }
 
-section.lower-middle, section.high-bottom{
+section.lower-middle, section.high-bottom {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    padding-top: 0px;
+    padding-top: 0;
     background-color: blue;
 }
-
-
-
-
-
 
 div {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     display: flex;
     border-radius: 10px;
     color: black;
-    font-size: 30px;
 }
 
-div.Project-1, div.Project-2{
-    height: 800px;
-    width: 700px;
+/* Projects 1 & 2 */
+div.Project-1, div.Project-2 {
+    flex: grid; 
+    grid-template-rows: 1fr 1fr;
+    max-width: 700px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    background-color: red;
 }
 
 .box-up {
-    margin: 0px;
-    height: 300px;
-    width: 700px;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 0px;
 }
 
 .box-up img {
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover; /* Scales the image to fully cover the box while maintaining aspect ratio */
-    object-position:center; /* Centers the image within the box */
-    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    object-position: center;
+    border-radius: 10px 10px 0 0;
 }
 
 .box-down {
-    height: 400px;
-    width: 700px;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px;
+    margin: 0;
 }
 
-.box-down .sub-title{
-    padding: 30px 30px 10px 50px;
-    margin: 0px;
-    font-size: 42px;
+.box-down .sub-title {
+    padding: clamp(15px, 2vw, 30px) clamp(15px, 2vw, 30px) 10px;
+    margin: 0;
+    font-size: clamp(28px, 3vw, 42px);
     text-align: center;
 }
 
-.box-down .job-title{
-    margin: 0px;
-    font-size: 18px;
+.box-down .job-title {
+    margin: 0;
+    font-size: clamp(16px, 1.5vw, 18px);
     text-align: center;
     padding-bottom: 25px;
 }
 
-.box-down .description{
-    margin: 0px;
-    font-size: 25px;
-    padding: 20px 30px 30px 50px; /*up right down left*/
+.box-down .description {
+    margin: 0;
+    font-size: clamp(18px, 1.8vw, 25px);
+    padding: 20px clamp(20px, 3vw, 50px) 30px;
 }
 
-.box-down .City{
-    width: 120px;
+.box-down .City, .box-down .Hylands {
+    width: 100%;
+    max-width: 120px;
     margin-top: 20px;
     display: flex;
     align-self: center;
     justify-content: space-between;
 }
 
-.box-down .Hylands{
-    width: 87px;
-    display: flex;
-    align-self: center;
-    justify-content: space-between;
+.box-down .Hylands {
+    max-width: 87px;
 }
 
-
-
-
-
-
-div.Project-3{
-    width: 1420px;
-    /* background-color: rgb(247, 247, 247); */
+/* Project 3 - Using CSS Grid for perfect side-by-side scaling */
+div.Project-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
     background-color: white;
-    display: flex;
-    padding: 20px;
+    padding: clamp(10px, 2vw, 20px);
     gap: 20px;
 }
 
+.box-right, .box-left {
+    width: 100%;
+    margin: 0;
+}
+
+/* Image container */
 .box-right {
-    height: 800px;
-    width: 720px;
+    aspect-ratio: 7 / 8; /* Replaces the hard 720x800 size */
     display: flex;
     justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .box-right img {
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover; /* Scales the image to fully cover the box while maintaining aspect ratio */
-    object-position:bottom; /* Centers the image within the box */
-    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
 }
 
+/* Text container */
 .box-left {
-    height: 800px;
-    width: 720px;
+    height: 100%; /* Matches image height */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center; /* Vertically centers text to match image */
 }
 
-.sub-title{
-    padding: 30px;
-    margin: 0px;
-    font-size: 23px;
+.sub-title {
+    padding: clamp(15px, 2vw, 30px);
+    margin: 0;
+    font-size: clamp(20px, 2vw, 23px);
 }
 
-.box-left .description{
-    padding: 10px 30px 30px 20px; /*up right down left*/
+.box-left .description {
+    padding: 10px clamp(15px, 2vw, 30px) 30px clamp(15px, 2vw, 20px);
     font-weight: 500;
-    margin: 0px;
-    font-size: 50px;
+    margin: 0;
+    font-size: clamp(30px, 3.5vw, 50px);
+    line-height: 1.2;
 }
 
-.core-description{
-    line-height: 2.5rem; /*Line height*/
-    padding: 20px 30px 20px 30px;
-    margin: 0px;
-    font-size: 30px;
+.core-description {
+    line-height: 1.8;
+    padding: 20px clamp(15px, 2vw, 30px);
+    margin: 0;
+    font-size: clamp(18px, 2.2vw, 30px);
 }
 
-.small-text{
-    font-size: 20px;
-    width: 200px;
+.small-text {
+    font-size: clamp(16px, 1.5vw, 20px);
+    width: auto;
+    max-width: 200px;
     margin-top: 40px;
 }
 
-div.organizations{
-    margin-top: 50px;
-    width: 500px;
+div.organizations {
+    margin-top: clamp(30px, 4vw, 50px);
+    width: 100%;
+    max-width: 500px;
     display: flex;
-    align-self: center;
-}
-
-div.organizations img{
-    margin: 5px;
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 70%; /* Ensures the image scales to fill the height of the box */
-}
-
-
-
-
-
-
-div.about-me{
-    width: 1420px;
-    display: flex;
-    flex-direction: row-reverse;
+    flex-wrap: wrap;
     justify-content: center;
+    align-self: center;
+    gap: 10px;
+}
+
+div.organizations img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px; /* Limits logo size securely */
+    object-fit: contain;
+}
+
+/* About Me Section */
+div.about-me {
+    display: flex;
+    flex-direction: row-reverse; /* Keeps your requested order */
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
     padding: 20px;
     gap: 20px;
 }
 
-.box-left-2{
-    height: 800px;
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid rgb(110, 199, 110);
+.box-left-2, .box-right-2 {
+    flex: 1 1 45%;
+    min-width: 300px; /* Prevents shrinking too much before wrapping */
+    max-width: 600px;
+    width: 100%;
 }
 
-.box-right-2{
-    height: 800px;
-    width: 600px;
+.box-left-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid rgb(110, 199, 110);
+    padding: 20px; /* Added internal padding so text doesn't touch the border */
+}
+
+.box-right-2 {
+    aspect-ratio: 3 / 4; /* Scalable height for your portrait image */
     display: flex;
     justify-content: center;
 }
 
 .Me {
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover; /* Scales the image to fully cover the box while maintaining aspect ratio */
-    object-position:center; /* Centers the image within the box */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     border-radius: 10px;
 }
 
-
-
-
 div.Photo3 {
-    background-size: 100%;
-    background-position-x: 50%; /* Centers the image in the div */
-    background-position-y: 70%;
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 700px;
-    width: 600px;
-    box-sizing: border-box;
+    background-size: cover; /* Better than fixed 100% */
+    background-position: 50% 70%;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 6 / 7;
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
-
-section.testing{
+section.testing {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
 }
 
-
-div.Resume{
+div.Resume {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    width: 900px;
-    height: 900px;
+    width: 100%;
+    max-width: 900px;
+    height: auto; /* Lets the image control the natural height */
 }
 
-div.Resume img{
-    max-height: 100%;
-    box-shadow:
-    rgba(0, 0, 0, 0.3) 0 -2px 5px, /* Shadow at the top */
-    rgba(0, 0, 0, 0.3) 0 5px 5px; /* Shadow at the bottom */;
+div.Resume img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 
+        rgba(0, 0, 0, 0.3) 0 -2px 5px, 
+        rgba(0, 0, 0, 0.3) 0 5px 5px; 
 }
 
-
+/* Global Buttons & Links */
 .project-button {
-    width:150px;
+    width: 150px;
     height: 50px;
     border-radius: 5px;
     border: 2px solid rgb(110, 199, 110);
     background-color: white;
     box-shadow: inset 0 0 0 0 lightgreen;
     transition: ease-out 0.35s;
-}
-
-.project-button:hover{
-    box-shadow: inset 150px 0 0px 0px lightgreen;
+    font-size: 16px;
     cursor: pointer;
 }
 
-
-
-
+.project-button:hover {
+    box-shadow: inset 150px 0 0 0 lightgreen;
+}
 
 ul {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
 li {
     display: flex;
-    flex-direction: wrap;
     justify-content: center;
-    width: 200px;
+    width: auto; 
+    padding: 0 15px;
     text-align: center;
 }
 
@@ -383,11 +394,11 @@ a {
     text-transform: none;
     cursor: pointer;
     position: relative;
-    font-size: 20px;
+    font-size: clamp(16px, 1.5vw, 20px);
     color: white;
 }
 
-a::after{
+a::after {
     content: '';
     position: absolute;
     height: 2px;
@@ -404,4 +415,18 @@ a:hover:after {
 
 a:visited {
     color: white;
+}
+
+/* Media Query: Stack elements gracefully on tablets/mobile and prevent "blow-up" */
+@media (max-width: 900px) {
+    div.Project-3 {
+        grid-template-columns: 1fr; /* Stacks to 1 column */
+        max-width: 600px; /* Caps container width so stacked items don't stretch massively */
+    }
+    
+    div.about-me {
+        flex-direction: column; /* Stacks column (overrides row-reverse) */
+        align-items: center;
+        max-width: 600px; /* Caps container width */
+    }
 }
