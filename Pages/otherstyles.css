@@ -1,86 +1,89 @@
 body {
     background: black;
     color: white;
-    font-family: Helvetica Neue, Helvectica, sans-serif;
-    margin: 0px 0px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    margin: 0;
+    min-height: 100vh;
 }
 
-header{
-    padding: 35px 20px 40px 20px;
+header {
+    padding: clamp(20px, 4vh, 40px) clamp(15px, 2vw, 30px);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-footer{
-    height: 150px;
+footer {
+    min-height: 100px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0px;
-    Position: absolute; bottom: -100; Left: 0; Right: 0; 
+    margin: 0;
 }
 
-header nav ul, footer nav{
+header nav ul, footer nav {
     display: flex;
     flex-direction: row;
-    /* align-content: center;
-    justify-items: center; */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 header h1 {
     text-align: left;
     margin-bottom: 5px;
     align-self: flex-start;
+    font-size: clamp(24px, 3vw, 40px);
 }
 
 header h2 {
     align-self: flex-start;
     text-align: left;
-    font-size: medium;
-    margin: 0px;
-    padding: 0px;
+    font-size: clamp(16px, 1.5vw, 20px);
+    margin: 0;
 }
 
 section {
-    /* background: rgb(247, 247, 247); */
     background-color: white;
     color: black;
-    padding: 20px;
-    margin: 0px 0px;
+    padding: clamp(15px, 3vw, 20px);
+    margin: 0;
 }
 
 section.upper {
     color: white;
     background-color: black;
-    display: middle;
+    display: flex; /* Changed from 'middle' (invalid) to flex */
+    justify-content: center;
     text-align: center;
-    font-size: 20px;
-    padding-top: 0px;
+    font-size: clamp(16px, 2vw, 20px);
+    padding-top: 0;
 }
 
-
-/* Adjusts the div boxes (Particualrly the flex direction & location)*/
-section.middle, section.bottom-middle{
+/* Adjusts the div boxes (Particularly the flex direction & location) */
+section.middle, section.bottom-middle {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: row; 
+    flex-wrap: wrap; /* Fixed invalid flex-direction */
     justify-content: center;
-    padding: 50px;
-    gap:20px;
+    padding: clamp(30px, 5vw, 50px);
+    gap: 20px;
 }
 
-section.lower-middle, section.high-bottom{
+section.lower-middle, section.high-bottom {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 60px;
+    padding: clamp(30px, 6vw, 60px);
 }
 
-/*Openning statement on page*/
+/* Opening statement on page */
 section.raise-text {
-    padding: 120px;
-    margin: 0px;
+    padding: clamp(60px, 10vh, 120px);
+    margin: 0;
     display: flex;
     justify-content: center;
     position: relative;
@@ -89,12 +92,12 @@ section.raise-text {
 p.Statement {
     transition: all 0.9s;
     opacity: 0.5;
-    font-size: 31px;
+    font-size: clamp(22px, 2.5vw, 31px);
     position: absolute;
     top: 30%;
 }
 
-section.raise-text:hover p.Statement{
+section.raise-text:hover p.Statement {
     transform: translateY(-25%);
     opacity: 1;
 }
@@ -102,160 +105,165 @@ section.raise-text:hover p.Statement{
 section.bottom {
     background-color: lightgreen;
     text-align: center;
-    padding: 6px;
+    padding: 10px;
 }
 
 div {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     display: flex;
-    padding: 0px;
+    padding: 0;
     border-radius: 10px;
     color: black;
-    /* font-size: 60px; */
 }
 
-div.Project-1, div.Project-2{
-    height: 700px;
-    width: 700px;
+div.Project-1, div.Project-2 {
+    flex: 1 1 400px; /* Allows it to grow and shrink, starts at 400px */
+    max-width: 700px; /* Prevents it from getting too large on ultrawide */
     display: flex;
     flex-direction: column;
-    /* background-color: rgb(233, 243, 252); */
-    /* border: 2px solid #559dc7; */
 }
 
 div.box-up {
-    margin: 0px;
-    height: 300px;
-    width: 700px;
+    margin: 0;
+    width: 100%;
+    height: clamp(250px, 30vh, 300px); /* Scales height appropriately */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .box-up img {
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover; /* Scales the image to fully cover the box while maintaining aspect ratio */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     object-position: 0% 62%;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0; /* Rounds only top corners so it sits flush */
 }
 
 div.box-down {
-    height: 400px;
-    width: 700px;
+    width: 100%;
+    flex-grow: 1; /* Fills remaining space dynamically */
     display: flex;
     flex-direction: column;
     background-color: #ecd4b5;
+    border-radius: 0 0 10px 10px;
 }
 
-.box-down .sub-title{
-    padding: 30px 30px 30px 50px;
-    margin: 0px;
-    font-size: 35px;
+.box-down .sub-title {
+    padding: clamp(15px, 2vw, 30px) clamp(20px, 3vw, 50px);
+    margin: 0;
+    font-size: clamp(24px, 2.5vw, 35px);
 }
 
-.box-down .description{
-    margin: 0px;
-    font-size: 25px;
-    padding: 20px 30px 20px 50px; /*up right down left*/
+.box-down .description {
+    margin: 0;
+    font-size: clamp(18px, 1.8vw, 25px);
+    padding: 0 clamp(20px, 3vw, 50px) 20px clamp(20px, 3vw, 50px);
 }
 
-.box-down .project-button{
-    margin-bottom: 2vh;
+.box-down .project-button {
+    margin-bottom: 30px;
     margin-top: auto;
     align-self: center;
 }
 
-
-div.Project-3{
-    width: 1420px;
-    height: 500px;
-    background-color: white;
+/* Upgrade to CSS Grid for perfect layout control */
+div.Project-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Forces a perfect 50/50 split on desktop */
     gap: 20px;
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
+}
+
+/* Remove all flex shrinking/growing math. Grid handles it perfectly. */
+.box-left, .box-right {
+    width: 100%;
+    margin: 0;
 }
 
 .box-left {
-    margin: 0px;
-    height: 500px;
-    width: 720px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    aspect-ratio: 7 / 5; /* Maintains your exact 700x500 ratio */
+    border-radius: 10px;
+    overflow: hidden; /* Acts like a mask to keep the image edges round */
+}
+
+.box-left img, .box-left .elec_290 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .box-left img {
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover;
     object-position: 0% 75%;
-    border-radius: 10px;
 }
 
-.box-left .elec_290{
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover;
+.box-left .elec_290 {
     object-position: top;
-    border-radius: 10px;
 }
 
 .box-right {
-    height: 500px;
-    width: 720px;
     display: flex;
     flex-direction: column;
     background-color: #a6d9f7;
-    margin: 0px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.box-right .sub-title{
-    padding: 40px 30px 30px 50px; /*up right down left*/
-    margin: 0px;
-    font-size: 35px;
+.box-right .sub-title {
+    padding: clamp(20px, 3vw, 40px) clamp(20px, 3vw, 50px) clamp(15px, 2vw, 30px);
+    margin: 0;
+    font-size: clamp(24px, 2.5vw, 35px);
 }
 
-.box-right .description{
-    margin: 0px;
-    font-size: 25px;
-    padding: 20px 30px 30px 50px;
-    border-color: red;
-    border: 3px;
+.box-right .description {
+    margin: 0;
+    font-size: clamp(18px, 1.8vw, 25px);
+    padding: 0 clamp(20px, 3vw, 50px) clamp(20px, 3vw, 30px);
 }
 
-.box-right .project-button{
-    margin-bottom: 2vh;
+.box-right .project-button {
+    margin-bottom: 30px;
     margin-top: auto;
     align-self: center;
 }
 
+/* Media Query: The fix for the "Blow-Up" effect */
+@media (max-width: 900px) {
+    div.Project-3 {
+        grid-template-columns: 1fr; /* Stacks the boxes into a single column */
+        max-width: 600px; /* CRITICAL: Caps the container width so the images don't explode in size when stacked */
+    }
+}
+
 .project-button {
-    /* margin: 50px; */
-    width:150px;
+    width: 150px;
     height: 50px;
     border-radius: 5px;
     border: 2px solid lightskyblue;
-    background-color: rgb(216, 235, 250);;
+    background-color: rgb(216, 235, 250);
     box-shadow: inset 0 0 0 0 lightskyblue;
     transition: ease-out 0.35s;
+    font-size: 16px; /* Added font size for consistency */
 }
 
-.project-button:hover{
+.project-button:hover {
     box-shadow: inset 150px 0 0 0 lightskyblue;
     cursor: pointer;
 }
 
-
 ul {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
 li {
     display: flex;
-    flex-direction: wrap;
     justify-content: center;
-    width: 200px;
+    width: auto; /* Let content dictate width instead of strict px */
+    padding: 0 15px;
     text-align: center;
 }
 
@@ -264,16 +272,16 @@ a {
     text-transform: none;
     cursor: pointer;
     position: relative;
-    font-size: 20px;
+    font-size: clamp(16px, 1.5vw, 20px);
     color: white;
 }
 
-a::after{
+a::after {
     content: '';
     position: absolute;
     height: 2px;
     left: 0;
-    bottom: -3px;
+    bottom: -4px;
     width: 0;
     background: lightgreen;
     transition: width 0.2s;
@@ -287,3 +295,9 @@ a:visited {
     color: white;
 }
 
+/* Media Query: Stack elements gracefully on tablets/mobile */
+@media (max-width: 900px) {
+    div.Project-3 {
+        flex-direction: column;
+    }
+}
