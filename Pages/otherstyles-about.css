@@ -134,6 +134,7 @@ div.Project-1, div.Project-2 {
     flex-direction: column;
     overflow: hidden;
     /* background-color: red; */
+    border: solid 1px lightgreen;
 }
 
 .box-up {
