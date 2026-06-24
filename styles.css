@@ -1,66 +1,63 @@
 body {
     background: black;
     color: white;
-    font-family: Helvetica Neue, Helvectica, sans-serif;
-    margin: 0px 0px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    margin: 0;
     min-height: 100vh;
 }
 
-header{
-    padding: 35px 20px 40px 20px;
+header {
+    padding: clamp(20px, 4vh, 40px) clamp(15px, 2vw, 30px);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-footer{
-    height: 150px;
+footer {
+    min-height: 100px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0px;
+    margin: 0;
 }
 
-header nav ul, footer nav{
+header nav ul, footer nav {
     display: flex;
     flex-direction: row;
-    /* align-content: center;
-    justify-items: center; */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 header h1 {
     text-align: left;
     margin-bottom: 5px;
     align-self: flex-start;
+    font-size: clamp(24px, 3vw, 40px);
 }
 
 header h2 {
     align-self: flex-start;
     text-align: left;
-    font-size: medium;
-    margin: 0px;
+    font-size: clamp(16px, 1.5vw, 20px);
+    margin: 0;
 }
-
-
-
-
-
-
-
 
 section {
     background: white;
-    padding: 20px;
-    margin: 0px 0px;
+    padding: clamp(20px, 3vh, 40px) clamp(15px, 2vw, 30px);
+    margin: 0;
 }
 
 section.upper {
     background-color: black;
-    display: middle;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    font-size: 20px;
-    padding-top: 0px;
+    font-size: clamp(16px, 1.5vw, 22px);
+    padding-top: 0;
 }
 
 section.middle {
@@ -69,237 +66,191 @@ section.middle {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 0px 0px 30px 0px; /*up right down left*/
+    padding: 0 0 30px 0;
+    gap: 20px;
 }
 
 section.first-text {
-    padding: 100px;
-    margin: 0px;
+    padding: clamp(60px, 10vh, 120px);
+    margin: 0;
     display: flex;
     justify-content: center;
     position: relative;
-    gap: 150px;
+    gap: clamp(40px, 5vw, 100px);
     color: black;
 }
 
 p.Statement {
     transition: all 0.9s;
     opacity: 0.4;
-    font-size: 33px;
+    font-size: clamp(24px, 2.5vw, 36px);
     position: absolute;
     top: 30%;
 }
 
-section.first-text:hover p.Statement{
-    font-size: 34px;
+section.first-text:hover p.Statement {
+    font-size: clamp(25px, 2.6vw, 38px);
     transform: translateY(-25%);
     opacity: 1;
 }
 
-section.sussy{
+section.sussy {
     display: flex;
-    flex-direction: wrap;
+    flex-wrap: wrap;
     justify-content: center;
-    padding-top: 0px;
-    gap:60px;
+    padding-top: 0;
+    gap: clamp(20px, 4vw, 60px);
     color: black;
 }
 
-section.main-text{
-    color:black;
-    padding: 100px;
+section.main-text {
+    color: black;
+    padding: clamp(50px, 10vh, 100px) clamp(20px, 5vw, 80px);
     display: flex;
     justify-content: center;
     position: relative;
-    font-size: 30px;
+    font-size: clamp(22px, 2vw, 32px);
 }
 
-section.middle-text{
+section.middle-text {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    color:black;
-    padding: 100px;
+    color: black;
+    padding: clamp(50px, 10vh, 100px) clamp(20px, 5vw, 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 27px;
+    font-size: clamp(20px, 1.8vw, 28px);
 }
 
 section.bottom {
-    padding: 6px;
+    padding: 10px;
     background-color: lightgreen;
     text-align: center;
 }
 
-
-
-
-
-div.Project-3{
-    width: 1420px;
-    /* background-color: rgb(247, 247, 247); */
-    background-color: white;
+div.Project-3 {
+    width: 100%;
+    max-width: 1400px; /* Caps width on ultra-wide screens */
+    margin: 0 auto;
+    background-color: rgb(151, 236, 151);
     display: flex;
-    padding: 20px;
-    gap: 20px;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    padding: clamp(15px, 2vw, 30px);
+    gap: clamp(15px, 2vw, 30px);
+    box-sizing: border-box;
 }
 
-.box-right {
-    height: 800px;
-    width: 720px;
+.box-right, .box-left {
+    flex: 1 1 45%; /* Use Flexbox to share space evenly */
+    min-width: 300px;
     display: flex;
-    justify-content: center;
 }
 
 .box-right img {
-    width: 100%; /* Ensures the image scales to fill the width of the box */
-    height: 100%; /* Ensures the image scales to fill the height of the box */
-    object-fit: cover; /* Scales the image to fully cover the box while maintaining aspect ratio */
-    object-position:bottom; /* Centers the image within the box */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
     border-radius: 10px;
 }
 
 .box-left {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    height: 800px;
-    width: 720px;
-    display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     text-align: start;
-    /* background-color: lightgreen; */
+    justify-content: center; /* Centers text vertically */
 }
 
-.box-left .sub-title{
-    padding: 30px;
-    margin: 0px;
-    font-size: 23px;
-    /* border: 1px solid black; */
+.box-left .sub-title {
+    padding: 20px 0;
+    margin: 0;
+    font-size: clamp(18px, 1.5vw, 24px);
 }
 
-.box-left .description{
-    padding: 0px 30px 30px 20px; /*up right down left*/
+.box-left .description {
+    padding: 0 0 20px 0;
     font-weight: 500;
-    margin: 0px;
-    font-size: 50px;
-    /* border: 1px solid black; */
+    margin: 0;
+    font-size: clamp(32px, 3.5vw, 54px);
+    line-height: 1.2;
 }
 
-.box-left .core-description{
-    line-height: 2.5rem; /*Line height*/
-    padding: 20px 30px 20px 30px;
-    margin: 0px;
-    font-size: 30px;
-    /* border: 1px solid black; */
+.box-left .core-description {
+    line-height: 1.8;
+    padding: 10px 0;
+    margin: 0;
+    font-size: clamp(18px, 2vw, 30px);
 }
 
-.small-text{
-    font-size: 20px;
-    /* border: 1px solid black; */
-    width: 200px;
-    margin-top: 40px;
+.small-text {
+    font-size: clamp(14px, 1.2vw, 20px);
+    max-width: 200px;
+    margin-top: 30px;
+}
+
+div.signature, div.Photo1, div.Photo2, div.Photo3-golf, div.Photo3 {
+    margin: 15px;
+    box-sizing: border-box;
+    height: clamp(400px, 60vh, 700px);
+    width: clamp(300px, 35vw, 550px);
+    border-radius: 10px;
+    background-repeat: no-repeat;
 }
 
 div.signature {
-    align-self: center ;
+    align-self: center;
     background-size: 125%;
-    background-position-x: 0%; /* Centers the image in the div */
-    background-position-y: 50%;
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 700px;
-    width: 500px;
-    box-sizing: border-box;
-}
-
-
-
-
-
-
-div {
-    margin: 10px;
-    box-sizing: border-box;
-    height: auto;
-    padding: 0px;
-    text-align: center;
-    border-radius: 10px;
+    background-position: 0% 50%;
 }
 
 div.Photo1 {
     background-size: 200%;
-    background-position-x: 50%; /* Centers the image in the div */
-    background-position-y: 80%;
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 700px;
-    width: 550px;
-    box-sizing: border-box;
+    background-position: 50% 80%;
 }
 
 div.Photo2 {
     background-size: 100%;
-    background-position-x: 50%; /* Centers the image in the div */
-    background-position-y: 85%;
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 700px;
-    width: 550px;
-    box-sizing: border-box;
+    background-position: 50% 85%;
 }
 
 div.Photo3-golf {
     background-size: 205%;
-    background-position-x: 75%; /* Centers the image in the div */
-    background-position-y: 70%;
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 700px;
-    width: 550px;
-    box-sizing: border-box;
+    background-position: 75% 70%;
 }
 
 div.Photo3 {
     background-size: 100%;
-    background-position-x: 50%; /* Centers the image in the div */
-    background-position-y: 70%;
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 700px;
-    width: 550px;
-    box-sizing: border-box;
+    background-position: 50% 70%;
 }
 
 button {
-    /* margin: 50px; */
-    width:200px;
+    width: 200px;
     height: 66px;
     border-radius: 5px;
     border: 2px solid lightgreen;
-    background-color: rgb(218, 241, 218);;
+    background-color: rgb(218, 241, 218);
     box-shadow: inset 0 0 0 0 lightgreen;
     transition: ease-out 0.30s;
     font-size: 22px;
 }
 
-button:hover{
+button:hover {
     box-shadow: inset 0 0 66px 0 lightgreen;
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
 ul {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
 li {
     display: flex;
-    flex-direction: wrap;
     justify-content: center;
-    width: 200px;
+    width: auto; /* Let content dictate width instead of strict 13vw */
+    padding: 0 15px;
     text-align: center;
 }
 
@@ -308,16 +259,16 @@ a {
     text-transform: none;
     cursor: pointer;
     position: relative;
-    font-size: 20px;
+    font-size: clamp(16px, 1.3vw, 22px);
     color: white;
 }
 
-a::after{
+a::after {
     content: '';
     position: absolute;
     height: 2px;
     left: 0;
-    bottom: -3px;
+    bottom: -4px;
     width: 0;
     background: lightgreen;
     transition: width 0.2s;
@@ -331,20 +282,29 @@ a:visited {
     color: white;
 }
 
-/* Media Query: Adjust for smaller screen sizes */
+/* Media Query: Restored standard breakpoints for reliability */
 @media (max-width: 1200px) {
-    div.Photo1, div.Photo2, div.Photo3 {
-        width: 45%; /* Make them slightly smaller on narrower screens */
+    div.Photo1, div.Photo2, div.Photo3, div.Photo3-golf {
+        width: 45%; 
     }
 }
 
 @media (max-width: 768px) {
     section.middle {
-        flex-direction: column; /* Stack items vertically on small screens */
+        flex-direction: column; 
     }
 
-    div.Photo1, div.Photo2, div.Photo3 {
-        width: 90%; /* Full width for small screens */
-        max-width: 500px; /* Set a reasonable max width */
+    div.Project-3 {
+        flex-direction: column;
+    }
+
+    .box-right, .box-left {
+        width: 100%;
+        min-height: auto;
+    }
+
+    div.Photo1, div.Photo2, div.Photo3, div.Photo3-golf {
+        width: 90%; 
+        max-width: 500px;
     }
 }
