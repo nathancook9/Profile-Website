@@ -82,7 +82,7 @@ section.first-text {
 
 p.Statement {
     transition: all 0.9s;
-    opacity: 0.4;
+    /* opacity: 0.4; */
     font-size: clamp(24px, 2.5vw, 36px);
     position: absolute;
     top: 30%;
