@@ -134,7 +134,7 @@ div.Project-1, div.Project-2 {
     flex-direction: column;
     overflow: hidden;
     /* background-color: red; */
-    border: solid 1px lightgreen;
+    border: solid 1px black;
 }
 
 .box-up {
@@ -180,13 +180,14 @@ div.Project-1, div.Project-2 {
 .box-down .description {
     margin: 0;
     font-size: clamp(18px, 1.8vw, 25px);
-    padding: 20px clamp(20px, 3vw, 50px) 30px;
+    padding: 15px clamp(15px, 3vw, 50px) 15px;
 }
 
 .box-down .City, .box-down .Hylands {
     width: 100%;
     max-width: 120px;
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     align-self: center;
     justify-content: space-between;
