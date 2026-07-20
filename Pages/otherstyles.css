@@ -140,6 +140,10 @@ div.box-up {
     border-radius: 10px 10px 0 0; /* Rounds only top corners so it sits flush */
 }
 
+.box-up .Database {
+    object-position: 0% 0%;
+}
+
 div.box-down {
     width: 100%;
     flex-grow: 1; /* Fills remaining space dynamically */
